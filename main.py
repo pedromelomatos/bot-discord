@@ -14,6 +14,16 @@ bot = commands.Bot(".", intents=intents)
 async def on_ready():
     print(f"{'=-'*20}\nBot inicializado com sucesso.\n{'=-'*20}")
 
+# o nome das noças funções de eventos é padronizado pelo oq o discord já nos disponibiliza
+
+@bot.event
+async def on_message(msg:discord.Message):
+    if msg.content == 'Rafinha':
+        await msg.reply('Rafinha sou eu. Se tiver com dúvidas sobre como posso te ajudar digite `.comandos` =)')
+        await bot.process_commands(msg) 
+    await bot.process_commands(msg) #se não for Rafinha a mensagem, processa ela como um comando e vê se ela é um comando.
+
+
 @bot.command()
 async def comandos(ctx:commands.Context):
     await ctx.reply("👋 **Oi, eu sou o Rafinha! Aqui estão os meus comandos disponíveis:**\n\n"
