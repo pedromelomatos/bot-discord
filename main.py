@@ -2,17 +2,23 @@ import discord
 from discord.ext import commands
 from infos import token
 
-intents = discord.Intents.all() #permissões do discord salvadas em uma variável, nesse caso as permissões que o nosso bot tem são todas.
+intents = discord.Intents.all() 
 
-bot = commands.Bot(".", intents=intents) # uma variável representando nosso bot. "." é o prefixo que o bot vai usar para identificar comandos. Por exemplo, se tiver um comando chamado ping, é pra chamar ele assim no Discord: .ping. E o intents é só falando que as permissões que o nosso bot vai ter são as que a gente armazenou na variável intents.
+#permissões do discord salvadas em uma variável, nesse caso as permissões que o nosso bot tem são todas.
+
+bot = commands.Bot(".", intents=intents) 
+
+# uma variável representando nosso bot. "." é o prefixo que o bot vai usar para identificar comandos. Por exemplo, se tiver um comando chamado ping, é pra chamar ele assim no Discord: .ping. E o intents é só falando que as permissões que o nosso bot vai ter são as que a gente armazenou na variável intents.
 
 @bot.event
 async def on_ready():
     print(f"{'=-'*20}\nBot inicializado com sucesso.\n{'=-'*20}")
 
 @bot.command()
-async def ola(ctx):
-    await ctx.reply("Olá, sou o Rafinha como posso te ajudar? ")
+async def ola(ctx:commands.Context):
+    usuario = ctx.author.display_name
+    await ctx.reply(f"Olá {usuario}, sou o Rafinha como posso te ajudar? ")
 
+#ctx aqui de parâmetro é literalmente o contexto em qual a função está sendo chamada (servidor, canal de texto específico, etc)
 
 bot.run(f"{token}") #"roda esse bot dessa token"
