@@ -19,6 +19,12 @@ async def ola(ctx:commands.Context):
     usuario = ctx.author.display_name
     await ctx.reply(f"Olá {usuario}, sou o Rafinha como posso te ajudar? ")
 
+@bot.command()
+async def nome(ctx:commands.Context, nome, sobrenome):
+    await ctx.reply(f"Seu nome é {nome} e seu sobrenome é {sobrenome}?")
+
 #ctx aqui de parâmetro é literalmente o contexto em qual a função está sendo chamada (servidor, canal de texto específico, etc)
+
+#os parametros são as palavras que o usuário digita em ordem 
 
 bot.run(f"{token}") #"roda esse bot dessa token"
