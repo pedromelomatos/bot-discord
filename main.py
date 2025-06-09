@@ -15,6 +15,20 @@ async def on_ready():
     print(f"{'=-'*20}\nBot inicializado com sucesso.\n{'=-'*20}")
 
 @bot.command()
+async def comandos(ctx:commands.Context):
+    await ctx.reply("👋 **Oi, eu sou o Rafinha! Aqui estão os meus comandos disponíveis:**\n\n"
+        "📌 `.ola`\n"
+        "Eu te dou um olá personalizado com seu nome!\n"
+        "👉 Exemplo: `.ola`\n\n"
+        "📌 `.nome <nome> <sobrenome>`\n"
+        "Te digo seu nome completo.\n"
+        "👉 Exemplo: `.nome Pedro Silva`\n\n"
+        "📌 `.soma <número1> <número2>`\n"
+        "Faço uma conta pra você =) \n"
+        "👉 Exemplo: `.soma 10 15`\n\n"
+        "Se precisar de mim, só chamar. Tamo junto, bigode! 😎")
+
+@bot.command()
 async def ola(ctx:commands.Context):
     usuario = ctx.author.display_name
     await ctx.reply(f"Olá {usuario}, sou o Rafinha como posso te ajudar? ")
@@ -23,6 +37,12 @@ async def ola(ctx:commands.Context):
 async def nome(ctx:commands.Context, nome, sobrenome):
     await ctx.reply(f"Seu nome é {nome} e seu sobrenome é {sobrenome}?")
 
+@bot.command()
+async def soma(ctx:commands.Context, num1, num2):
+    numero1 = int(num1)
+    numero2 = int(num2)
+    await ctx.reply(f'A soma de {numero1} com {numero2} é {numero1+ numero2}. Correto?')
+ 
 #ctx aqui de parâmetro é literalmente o contexto em qual a função está sendo chamada (servidor, canal de texto específico, etc)
 
 #os parametros são as palavras que o usuário digita em ordem 
