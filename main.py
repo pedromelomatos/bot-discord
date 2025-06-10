@@ -14,7 +14,7 @@ bot = commands.Bot(".", intents=intents)
 async def on_ready():
     print(f"{'=-'*20}\nBot inicializado com sucesso.\n{'=-'*20}")
 
-# o nome das noças funções de eventos é padronizado pelo oq o discord já nos disponibiliza
+# o nome das nossas funções de eventos é padronizado pelo oq o discord já nos disponibiliza
 
 @bot.event
 async def on_message(msg:discord.Message):
