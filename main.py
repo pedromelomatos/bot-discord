@@ -23,6 +23,10 @@ async def on_message(msg:discord.Message):
         await bot.process_commands(msg) 
     await bot.process_commands(msg) #se não for Rafinha a mensagem, processa ela como um comando e vê se ela é um comando.
 
+@bot.event
+async def on_member_join(membro:discord.Member):
+    canal = bot.get_channel(952211300614815778)
+    await canal.send(f"salve {membro.display_name}")
 
 @bot.command()
 async def comandos(ctx:commands.Context):
